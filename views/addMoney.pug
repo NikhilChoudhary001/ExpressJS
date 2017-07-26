@@ -1,0 +1,82 @@
+extends layout
+
+block append head
+	style.
+		.tab-content{
+		height : 475px;
+		}
+		#signup{
+		height : 95%;
+		padding-bottom : 5px;
+		}
+	script.
+		$(document).ready(function(){
+		//$("#nextButton").click(function(){
+		//if(($("#amount").val() >= 1)&&($("#amount").val() <= 10000)){
+		//console.log("My value is:"+($("#amount").val() <= 10000));
+		//$("#enterCardDetails").toggle();
+		//}
+		//});
+		$.ajax({
+		url:"http://localhost:1010/validCard",
+		method:"get",
+		success: function(data){
+		if(data.length != 0){
+		//$("button").attr('disabled',true);
+			$("#msg").toggle();
+		}
+		},
+		error: function(err, data, data1){
+		console.log(err + data + data1);
+		}
+		});
+		$("#CardNumber").keypress(function () {
+		var clength = $(this).val().length;
+		switch (clength) {
+		case 4:
+		var cVal = $(this).val();
+		var cNewVal = cVal + '-';
+		$(this).val(cNewVal);
+		break;
+		case 9:
+		var cVal = $(this).val();
+		var cNewVal = cVal + '-';
+		$(this).val(cNewVal);
+		break;
+		case 14:
+		var cVal = $(this).val();
+		var cNewVal = cVal + '-';
+		$(this).val(cNewVal);
+		break;
+		default:
+		break;
+		}
+		});
+		});
+block content
+	.container
+		.row
+			.col-lg-12.text-center.tab-content
+				h3.formHeading Add money to your wallet 
+				form#signup(name='addMoney', action='http://localhost:1010/validCard', method='post')
+					p#enterAmount.form-group
+						label(for='amount')  Enter Amount (₹) 
+						input#amount.form-control(type='number', name='amount', placeholder='₹ 100', min='1', max='10000', step='0.01', required='')
+					// button.btn.btn-primary.pull-left#nextButton Next
+					// br
+					// br
+					// #enterCardDetails(hidden)
+					#enterCardDetails
+						p.form-group
+							label(for='CardNumber')  Enter your 16-digit card Number 
+							i.fa.fa-credit-card(aria-hidden='true', style='margin-left:-100px ; font-size : 1em')
+							input#CardNumber.form-control(type='text', placeholder='XXXX-XXXX-XXXX-XXXX', pattern='[0-9-]{19}', required='required')
+						p.form-group
+							label(for='validTill')  Expiry Date 
+							input#validTill.form-control(type='month', name='validTill', required='required')
+						p.form-group
+							label(for='cvv')  CVV 
+							input.form-control(type='text', name='cvv', placeholder='XXX', pattern='[0-9]{3}', required='required')
+						p#msg.help-block(style='display:none;color:red') Invalid Card ! Logout and Try Again .
+						button.btn.btn-primary.pull-left(type='submit') Add Money
+	

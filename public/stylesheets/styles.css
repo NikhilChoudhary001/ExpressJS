@@ -1,0 +1,242 @@
+.logo {
+  margin-top: -20px;
+  text-align: center;
+}
+.error {
+  margin: 70px;
+  text-align: center;
+  color: MidnightBlue;
+  background-color: #fff;
+  font-size: 1.3em;
+}
+#signup {
+  width: 40%;
+  height: 50%;
+  margin-top: -3px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 9px 10px -1px rgba(100,149,237,0.91);
+  -moz-box-shadow: 1px 9px 10px -1px rgba(100,149,237,0.91);
+  box-shadow: 1px 9px 10px -1px rgba(100,149,237,0.91);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+#signup h1 {
+  position: relative;
+  font: italic 1.4em 'Montserrat';
+  text-decoration: underline;
+  color: #000;
+  text-align: center;
+  margin: 0 0 20px;
+}
+#signup input {
+  margin: 5px 0;
+  padding: 15px;
+  width: 40%;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+#signup input:focus {
+  border-color: CornFlowerBlue;
+}
+#signup button {
+  margin: 20px 0 0 0;
+  padding: 15px 8px;
+  width: 50%;
+  font: 0.9em Montserrat;
+  background-color: CornFlowerBlue;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+#signup button:active {
+  position: relative;
+  top: 3px;
+}
+#signup button:hover {
+  background-color: SteelBlue;
+  cursor: pointer;
+}
+textarea:focus,
+input:focus,
+button:focus {
+  outline: none;
+}
+body {
+  font: italic 1.2em 'Montserrat';
+  background: url("/images/blue2.png") no-repeat fixed center;
+  background-size: 100%;
+  margin: 10px;
+  padding: 20px;
+}
+header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+}
+ul {
+  display: inherit;
+}
+ul.tab {
+  list-style-type: none;
+  overflow: hidden;
+}
+ul.tab li {
+  float: left;
+  vertical-align: middle;
+}
+ul.tab li img {
+  margin-top: -30px;
+}
+ul.tab li a {
+  display: inline-block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  border-radius: 10px 0px 0px 0px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+ul.tab li a:hover {
+  background-color: SteelBlue;
+  cursor: pointer;
+}
+ul.tab li a:focus,
+.active {
+  background-color: #fff;
+}
+.tabcontent {
+  display: block;
+  padding: 6px 12px;
+  border-top: none;
+  width: 100%;
+}
+.footer-distributed {
+  background-color: CornFlowerBlue;
+  width: 100%;
+  color: #000;
+  text-align: left;
+  padding: 20px -10px;
+  margin-top: 80px;
+}
+.footer-distributed .footer-left {
+  width: 25%;
+}
+.footer-distributed h4 {
+  line-height: 50px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.footer-distributed .footer-links {
+  margin: 20px 0 12px;
+  padding: 0;
+}
+.footer-distributed .footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+}
+.footer-distributed .footer-company-name {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 35px;
+}
+.footer-distributed .footer-center {
+  width: 32%;
+}
+.footer-distributed .footer-center i {
+  background-color: #fff;
+  color: SteelBlue;
+  font-size: 30px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin: 10px 15px;
+  vertical-align: middle;
+  margin-left: 0;
+}
+.footer-distributed .footer-center i.fa-envelope {
+  font-size: 16px;
+  line-height: 38px;
+}
+.footer-distributed .footer-center p {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+.footer-distributed .footer-company-contact span {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.footer-distributed .footer-right {
+  width: 40%;
+}
+.footer-distributed .footer-company-about {
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0;
+}
+.footer-distributed .footer-company-about span {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.footer-distributed .footer-icons {
+  margin-top: 25px;
+}
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  color: SteelBlue;
+  background-color: #fff;
+  border-radius: 2px;
+  font-size: 22px;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+@media (max-width: 600px) {
+  .footer-distributed {
+    font: bold 18px Montserrat;
+  }
+  .footer-distributed .footer-center i {
+    margin-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}

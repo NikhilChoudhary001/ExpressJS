@@ -1,0 +1,39 @@
+extends layout
+
+block append head
+	style.
+		.tab-content h2,h4{
+			color : SteelBlue;
+			font-weight : 450;
+		}
+		.tab-content span{
+			font-weight : 600;
+			color : DarkBlue;
+		}
+		.tab-content{
+			height : 400px;
+		}
+
+block content
+		.container.tab-content
+			.row
+				.col-lg-12.text-center
+					h2.text-center="Welcome "
+						span=userName
+					br
+					h4(style='margin-left:-60px')="Name : "
+						span=fullName
+					br
+					h4(style='margin-left:-208px')="Wallet Balance : "
+						span=balance
+					br
+					h4(style='margin-left:-89px')="Contact No : "
+						span=contact
+					br
+					h4(style='margin-left:-120px')="Date of Birth : "
+						span=dob
+					br
+					h4(style='margin-left:-107px')="Address : "
+						span=address
+					
+		

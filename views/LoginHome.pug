@@ -1,0 +1,63 @@
+extends layout
+
+block content
+	.container
+			.row
+				.box
+					.col-lg-12.text-center
+						#carousel-example-generic.carousel.slide
+							// Indicators
+							ol.carousel-indicators.hidden-xs
+								li.active(data-target='#carousel-example-generic', data-slide-to='0')
+								li(data-target='#carousel-example-generic', data-slide-to='1')
+								li(data-target='#carousel-example-generic', data-slide-to='2')
+							// Wrapper for slides
+							.carousel-inner
+								.item.active
+									img.img-responsive.img-full(src='/images/Car1.png', alt='')
+								.item
+									img.img-responsive.img-full(src='/images/Car2.png', alt='')
+								.item
+									img.img-responsive.img-full(src='/images/Car3.png', alt='')
+							// Controls
+							a.left.carousel-control(href='#carousel-example-generic', data-slide='prev')
+								span.icon-prev
+							a.right.carousel-control(href='#carousel-example-generic', data-slide='next')
+								span.icon-next
+						h2.brand-before
+							small Welcome to
+						h1.brand-name Express Wallet
+			.row
+				.box
+					.col-lg-12
+						hr
+						h2.intro-text.text-center
+							strong
+								| A Wallet
+								| worth keeping
+						hr
+						img.img-responsive.img-left(src='/images/Picture1.png', height='320', width='220', alt='')
+						hr.visible-xs
+						p
+							| We welcome you with a balance of Rs.100.You can keep any amount of money in here. You can also "Go Cashless" and send money to any of the Wallet Users.
+							| If ever ,you fall short of money to send others , add in some to your wallet with our quick and easy methods.
+			.row
+				.box
+					.col-lg-12
+						hr
+						h2.intro-text.text-center
+							strong Where can you spend from here ? 
+						hr
+						
+						img.img-responsive.img-left(src='/images/p1.jpg', height='320', width='220', alt='')
+						
+						p
+							| Use it anywhere you want. Do your mobile recharges ,or purchase movie tickets and gift vouchers. It is great for just about anything, the sky's the limit!
+	
+
+	// Script to Activate the Carousel
+	script.
+		$('.carousel').carousel({
+		interval: 5000 
+		})
+

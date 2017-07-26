@@ -1,0 +1,31 @@
+extends layout
+
+block append head
+	style.
+		#signup{
+			height : 72% ;
+		}
+		.tab-content{
+			height : 400px ;
+		}
+	script.
+		$(document).ready(function(){
+			$( "#phoneNumber").change(function() {
+				$("#msg").toggle();
+			});
+		});
+
+block content
+	.container
+		.row
+			.col-lg-12.text-center.tab-content
+				h3.formHeading Recharge your Mobile
+				form#signup(name='', action='http://localhost:1010/rechargeSuccess', method='post')
+					p#enterAmount.form-group
+						label(for='amount')  Enter Amount (₹) 
+						input#amount.form-control(type='number', name='amount', placeholder='₹ 100', min='1', required='')
+					p.form-group
+						label(for='phoneNumber') Enter Mobile Number 
+						input#phoneNumber.form-control(type='tel', name='phoneNumber', pattern='[0-9]{10}', placeholder='Mobile Number', required='')
+					p#msg.help-block(style='display:none') Amount will be credited to your mobile balance.
+					button.btn.btn-primary.pull-left(type='submit') Recharge

@@ -1,0 +1,34 @@
+extends layout
+
+block append head
+	style.
+		a {
+		
+			color : DarkBlue ;
+		}	
+
+block content
+		.container
+			.row
+				.col-lg-12.text-center
+					h3.formHeading You can use your wallet money to pay for : 
+					
+				.box.text-center(style='margin-top : 100px')
+						h4
+							i.fa.fa-film.fa-4x.fa-lg(aria-hidden='true' style='vertical-align:middle')
+							a#Movie(href='/Movies')   Movies
+						br
+						br
+								
+						h4
+							i.fa.fa-gift.fa-5x.fa-lg(aria-hidden='true' style='margin-left:49px;vertical-align:middle')
+							a#Gift(href='/GiftVoucher')   Gift Vouchers
+						br
+						br
+								
+						h4
+							i.text-center.fa.fa-battery-full.fa-4x.fa-lg(aria-hidden='true' style='margin-left:90px;vertical-align:middle')
+							a#Recharge(href='/Recharge')   Mobile Recharges
+						br
+						br
+									

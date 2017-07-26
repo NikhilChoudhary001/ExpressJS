@@ -1,0 +1,113 @@
+extends layout
+
+block append head
+	style.
+		#movies #form_1{
+			background-color :rgba(255,255,255,0.40) ;
+			float : left ;
+			line-height : 33px;
+			width: 40%;
+			height: 50%;
+			margin-top: -3px ;
+			margin-bottom : 40px;
+			margin-left :60px;
+			margin-right :5px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			text-align : center;
+			-webkit-box-shadow: 1px 9px 20px -1px rgba(100,149,237,0.91);
+			-moz-box-shadow: 1px 9px 20px -1px rgba(100,149,237,0.91);
+			box-shadow: 1px 9px 20px -1px rgba(100,149,237,0.91);
+			-webkit-border-radius: 40px;
+			-moz-border-radius: 40px;
+			border-radius: 40px;
+			color : DarkBlue;
+			
+		}
+		#movies #form_2{
+			background-color :rgba(255,255,255,0.40) ;
+			float : left ;
+			line-height : 33px;
+			width: 40%;
+			height: 50%;
+			margin-top: -3px ;
+			margin-bottom : 40px;
+			margin-left :5px;
+			margin-right :auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			text-align : center;
+			-webkit-box-shadow: 1px 9px 20px -1px rgba(100,149,237,0.91);
+			-moz-box-shadow: 1px 9px 20px -1px rgba(100,149,237,0.91);
+			box-shadow: 1px 9px 20px -1px rgba(100,149,237,0.91);
+			-webkit-border-radius: 40px;
+			-moz-border-radius: 40px;
+			border-radius: 40px;
+			color : DarkBlue;
+		}
+		#movies p {
+			text-align : center ;
+			border-radius :40px;
+		}
+		#movies p b {
+			color : DarkBlue;
+		}
+		footer {
+			clear : both;
+		}
+		input:active{
+			position: relative;
+			top: 3px;
+		}
+		input:hover{
+			background-color: SteelBlue;
+			cursor : pointer ;
+		}
+	script.
+		$(document).ready(function(){
+				$.ajax({
+					url: "http://localhost:1010/getMovieList",
+					method: 'get',
+					dataType: 'JSON',
+					success: function(data) {
+						console.log(data);
+						var movie_name, max_seats, counter = 1;
+							$.each(data, function() {
+								$.each(this, function(name, value) {
+									if (name == "Movie") {
+									movie_name = value;
+									console.log("Movie_name is : "+movie_name);
+										$("#form_"+counter).append("<p><b>"+name+"</b> :  <select name='movie_name'> <option value='"+value+"'>"+value+"</option></select></p>");
+									}
+									if(name == "Theatre" || name == "Timings" || name == "Price" || name == "Plot")
+										$("#form_"+counter).append("<p><b id='movieHeader'> " + name + " </b>" + ': ' + value + "</p>");
+									if(name == "Max_seats"){
+										$("#form_"+counter).append("<p ><b id='movieHeader'>"+name+"</b>" + ': ' + value + "</p>");
+										max_seats = value;
+										$("#form_"+counter).append("<p><b id='movieHeader'> Pick your seats</b> :  <select name='ticket_count'> <option value='1'>1</option> <option  value='2'>2</option> <option value='3'>3</option> <option value='4'>4</option> </select></p>");
+									}
+									if (name == "imgURL")
+										$("#form_"+counter).append("<p><img src='"+value+"' height='30%' width='70%'></p>");
+									});
+									$("#form_"+counter).append("<p><input type='submit' value='Book Tickets' formaction='/bookMovie' class='btn btn-primary pull-left'></input></p>");
+									counter++;
+							});	
+					},
+					error: function(e1, e2, e3) {
+						console.log("Error is : " + JSON.stringify(e1) + ":" + e2 + " : " + e3);
+					}
+				});
+		});
+
+block content
+		.container
+			.row
+				.col-lg-12
+					h3.formHeading
+						| You can chose from the following movies :
+		.container.text-center(style='margin-left:200px ; margin-top:40px')
+			.row
+				.col-lg-6.text-left
+					form#form_1
+				.col-lg-6.text-left
+					form#form_2

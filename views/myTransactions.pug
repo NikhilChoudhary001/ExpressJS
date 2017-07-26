@@ -1,0 +1,49 @@
+extends layout
+
+block append head
+	link(rel='stylesheet', href='http://cdn.datatables.net/1.10.13/css/jquery.dataTables.css')
+	script(charset='utf8', src='http://cdn.datatables.net/1.10.13/js/jquery.dataTables.js')
+	style.
+		table.dataTable thead th, table.dataTable tfoot th {
+		font-weight: bold;
+		vertical-align: middle;
+		text-align : center;
+		font-size : 1.2em;
+		color :DarkBlue;
+		}
+		tbody{
+		font-size : 1.2em ;
+		color : DarkBlue ;
+		}
+		div#table_id_wrapper {
+		font-size : 1em;
+		margin-top : 40px;
+		}
+	script.
+		$(document).ready(function(){
+			$('#table_id').DataTable( {
+			"ajax": {
+			"url": "http://localhost:1010/getMyTransactions/",
+			"dataSrc": ""
+			},
+			"columns": [
+			{ "data": "amount" },
+			{ "data": "transactionType" },
+			{ "data": "Date" }
+			],
+			"order": [[ 2, "desc" ]]
+			// for initial ordering of date column in descending order
+			} );
+		});
+
+block content
+	.container.tab-content
+			.row
+				.col-lg-12.text-center
+					h3.formHeading(style='margin-left : -110px') Your recent transactions 
+					table#table_id.display(cellspacing='0', width='100%')
+						thead
+							tr
+								th Amount
+								th Transaction Type
+								th Date

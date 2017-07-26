@@ -1,0 +1,24 @@
+extends layout
+
+block append head 
+	style.
+		#signup{
+			height : 73%;
+		}
+block content
+	.container
+			.row
+				.col-lg-12.text-center.tab-content
+					h3.formHeading Pay Other Wallet Users  
+					form#signup(name='sendMoney', action='http://localhost:1010/validUser', method='post')
+						p.form-group
+							label(for='user')  Enter Username 
+							input.form-control#user(type='email', name='user', placeholder='walletuser@example.com', required)
+						p.form-group
+							label(for='amount')  Enter Amount (₹) 
+							input.form-control#amount(type='number', name='amount', placeholder='₹ 100.00', min='1', step='0.01', required)
+						p.form-group
+							label(for='remarks') Enter Remarks 
+							input.form-control#remarks(type='text', name='remarks', placeholder='What is it for ?', required)
+						button.btn.btn-primary.pull-left(type='submit') Send Money
+							

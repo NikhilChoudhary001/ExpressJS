@@ -1,0 +1,20 @@
+[{
+		"Movie": "The Imitation Game",
+		"imgURL": "images/tig.png",
+		"Theatre": "Multiplex",
+		"Timings": "Saturday : 1:30PM",
+		"Price": "100 per person ",
+		"Max_seats": "4",
+		"Plot": "An intense & haunting portrayal of a brilliant,complicated man : Alan Turing ,the one who follows a genius who under nail - biting pressure helped to shorten the war and,in turn,saved thousands of lives."
+	},
+
+	{
+		"Movie": "La La Land",
+		"imgURL": "images/ll.png",
+		"Theatre": "Multiplex",
+		"Timings": "Sunday : 1:30PM",
+		"Price": "100 per person ",
+		"Max_seats": "4",
+		"Plot": "Ryan Gosling as Sebastian ,a jazz musician and Emma Stone as  Mia ,an aspiring actress fall deeply in love,  but as success mounts their lives , they are faced with decisions that threaten to rip them apart."
+	}
+]

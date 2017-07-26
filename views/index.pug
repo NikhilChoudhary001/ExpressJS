@@ -1,0 +1,138 @@
+doctype html
+html
+	head
+		title= title
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='stylesheets/newStyle.css')
+		// Custom CSS
+		link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+		link(href='stylesheets/businesscasual.css', rel='stylesheet')
+		// Fonts
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic', rel='stylesheet')
+		link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+		
+	body
+		header.header-site
+			p(style='text-align:center;margin-top: 45px')
+			.brand Express Wallet
+			.address-bar "Your Money,Our responsibility"
+			// Navigation
+			nav.navbar.navbar-default.navbar-fixed-top
+				.container-fluid
+					// Brand and toggle get grouped for better mobile display
+					.navbar-header
+						button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='#') Express Wallet
+					// Collect the nav links, forms, and other content for toggling
+					#bs-example-navbar-collapse-1.collapse.navbar-collapse
+						ul.nav.navbar-nav.navbar-left
+							li
+								img(src='/images/Picture4.png', height='15%', width='45%')
+						ul.nav.navbar-nav.navbar-right
+							//li.nav.navbar-nav.navbar-left
+								//img(src='images/Picture2_trans1.png', height='100%', width='21%')
+							
+							li
+								a(href='http://localhost:1010/loginPage')
+									| Add Money 	 
+									i.fa.fa-upload(aria-hidden='true')
+							li
+								a(href='http://localhost:1010/loginPage')
+									| Send Money 
+									i.fa.fa-paper-plane(aria-hidden='true')
+							
+							li
+								a(href='http://localhost:1010/loginPage')
+									| Book Movie Tickets 
+									i.fa.fa-film(aria-hidden='true')
+									
+							li
+								a(href='http://localhost:1010/loginPage')
+									| Purchase Gift Vouchers
+									i.fa.fa-gift(aria-hidden='true' style='font-size:20px')
+							
+							li
+								a(href='http://localhost:1010/loginPage')
+									| Recharge Mobile 
+									i.fa.fa-mobile(aria-hidden='true' style='font-size:21px')
+
+							li.nav.navbar-nav.navbar-right
+								a(href='http://localhost:1010/loginPage')
+									span.glyphicon.glyphicon-user
+									| Login
+								
+				// /.navbar-collapse
+			// /.container-fluid
+		// /.navbar-collapse
+		// /.container
+		.container
+			.row
+				.col-lg-12.text-center.tab-content
+					h3.formHeading Login 
+					form#signup(action='http://localhost:1010/login', method='post')
+						p.form-group
+							label(for='username')  Username  
+							input.form-control(type='email', name='username', placeholder='Email : abc@xyz.com', required='')
+						p.form-group
+							label(for='pass')  Password  
+							input.form-control(type='password', name='pass', placeholder='Password', required='')
+						button.btn.btn-primary.pull-left(type='submit') Login
+						p.help-block.pull-left(style='margin-left : 4px')
+							a(href='http://localhost:1010/')  Cancel
+						p.help-block.pull-right Not a User ?
+								a(href='http://localhost:1010/register')  SignUp
+								
+		footer.footer-distributed
+			.container
+				.row
+					.col-xs-12
+						.footer-left
+							h3
+								| Express Wallet 
+								span &copy; 2017
+							p.footer-company-name A Venture By : ETA | UI & MarkUp
+						.footer-center
+							h3.footer-company-contact
+								| Contact Us
+								
+							div
+								i.fa.fa-phone
+								p +91 9804567890
+							div
+								i.fa.fa-envelope
+								p
+									a support@expresswallet.com
+						.footer-right
+							h3.footer-company-contact
+								| About Us
+							p.footer-company-about
+								| We bring to you , your own secured , digital wallet.  Add money, send Money to other wallet users and also pay for movies, gift vouchers and recharges.
+							.footer-icons
+								a(href='#')
+									i.fa.fa-facebook
+								a(href='#')
+									i.fa.fa-twitter
+								a(href='#')
+									i.fa.fa-linkedin
+								a(href='#')
+									i.fa.fa-github
+		// jQuery
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+		// Bootstrap Core JavaScript
+		script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+		// Script to Activate the Carousel
+		script.
+			$('.carousel').carousel({
+			interval: 5000 
+			})
+
+
+
+
+		
+				
