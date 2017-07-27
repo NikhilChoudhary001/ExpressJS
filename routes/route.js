@@ -32,11 +32,6 @@ exports.names = function(data){
 
 // Routing for logging in User to Express wallet
 
-/* router.get('/', function(req, res) {
-    console.log("Request For E-wallet Login Received");
-	res.render('logi', { title: 'ExpressWallet' });
-}); */
-
   router.get('/', function(req, res) {
     console.log("Request For E-wallet Received");
 	res.render('newHome', { title: 'ExpressWallet'});
@@ -112,63 +107,19 @@ router.get('/getMyTransactions/', function(req, res){;
 
 
 //Routing for addMoney tab
-/* router.get('/user/:username/addMoney',function(req,res){
-	res.render('addMoney',{title:'Add Money', userName : userName, balance : acBalance });
-}); */
  router.get('/user/:username/addMoney',function(req,res){
-	res.render('addMoneyCopy',{title:'Add Money', userName : userName, balance : acBalance });
-});
+	res.render('addMoney',{title:'Add Money', userName : userName, balance : acBalance });
+}); 
+
 //Routing for sendMoney tab
-/* router.get('/user/:username/sendMoney',function(req,res){
+ router.get('/user/:username/sendMoney',function(req,res){
 	res.render('sendMoney',{title:'Send Money', userName : userName, balance : acBalance });
-}); */
-router.get('/user/:username/sendMoney',function(req,res){
-	res.render('sendMoneyCopy',{title:'Send Money', userName : userName, balance : acBalance });
-});
+}); 
 
 //Checking for the error related to less money in wallet all across the app
 router.get('/errorMoney', function(req,res){
 	res.render('errorMoney', { title: 'Insufficient Balance',userName : userName });
 });
-
-
-
-/*router.route('/validCard')
-	.get(function (req, res){
-		console.log("Errormesage "+errormessage);
-		res.send(errormessage);
-	})
-	.post( function(req, res) {
-		console.log("Request For Valid Card Received");
-		var month = req.body.validTill;
-		console.log("Card is valid till"+month);
-		var yearEntered = month.split("-")[0];
-		var monthEntered = month.split("-")[1];
-		console.log("Month Entered By User is " +monthEntered);
-		console.log("Year entered by user is" +yearEntered);
-		var today = new Date();
-		var currentYear = today.getFullYear();
-		var currentMonth = today.getMonth()+ 1 ;
-		if(yearEntered < currentYear){
-			if(monthEntered < currentMonth){
-			errormessage = "Card Not Valid";
-			console.log(errormessage);
-			res.redirect('user/'+userName+'/addMoney');
-			console.log("Invalid month");
-			}
-			console.log("Invalid year");
-		}
-		else {
-			errormessage = "";
-			var amt = parseFloat(req.body.amount);
-			console.log("Amount is "+amt);
-			console.log("Type of Amount is "+typeof(amt));
-			acBalance = acBalance + amt ;
-			console.log("Type of AcBal is "+ typeof(acBalance));
-			dbmodule.addMoney(userName,acBalance,amt,res);
-			
-		}
-	});	*/
 	
 	router.route('/validCard')
 	.get(function (req, res){
@@ -210,8 +161,6 @@ router.get('/errorMoney', function(req,res){
 			
 		}
 	});	
-
-
 
 //Checking for valid User in Send Money tab
 
@@ -279,13 +228,7 @@ router.get('/getMovieList', function(req, res){
 router.get('/bookMovie*', function(req, res){
 	var movie = req.query.movie_name ;
 	var ticketCount = req.query.ticket_count;
-	//var amount = ticketCount * 100;
-	if(req.query.promo!=''){
-		var amount = ticketCount * 90;
-	}
-	else{
-		var amount = ticketCount * 100;
-	} 
+	var amount = ticketCount * 100;
 	console.log("You need to pay"+amount);
 	if( amount <= (acBalance) ){
 		console.log("Purchasing Movie Tickets For Rs."+amount);
@@ -364,7 +307,5 @@ router.post('/rechargeSuccess', function (req, res) {
 		console.log("Logging out"+req.params.username);
 		res.redirect('/');
 });
- 
-
 
 module.exports = router;
