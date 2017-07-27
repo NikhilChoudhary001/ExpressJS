@@ -86,9 +86,16 @@ router.get('/user/:username/loginHome', function(req,res){
 	var username = req.params.username;
 	userName = username;
     console.log("Request For User Home By "+userName+" Received");
+	//req.session.username = username;
 	res.render('LoginHome', { title: 'Welcome to Express Wallet', userName : username });
 	
 });
+
+router.get('/user/:username/logout',function(req,res){
+		console.log("Logging out"+req.params.username);
+		//req.session.destroy();
+		res.redirect('/');
+}); 
 
 // Routing for MyProfile Tab 
 
@@ -116,14 +123,14 @@ router.get('/getMyTransactions/', function(req, res){;
 	res.render('addMoney',{title:'Add Money', userName : userName, balance : acBalance });
 }); */
  router.get('/user/:username/addMoney',function(req,res){
-	res.render('addMoneyCopy',{title:'Add Money', userName : userName, balance : acBalance });
+	res.render('addMoney',{title:'Add Money', userName : userName, balance : acBalance });
 });
 //Routing for sendMoney tab
 /* router.get('/user/:username/sendMoney',function(req,res){
 	res.render('sendMoney',{title:'Send Money', userName : userName, balance : acBalance });
 }); */
 router.get('/user/:username/sendMoney',function(req,res){
-	res.render('sendMoneyCopy',{title:'Send Money', userName : userName, balance : acBalance });
+	res.render('sendMoney',{title:'Send Money', userName : userName, balance : acBalance });
 });
 
 //Checking for the error related to less money in wallet all across the app
@@ -187,9 +194,7 @@ router.get('/errorMoney', function(req,res){
 		var currentYear = today.getFullYear();
 		var currentMonth = today.getMonth()+ 1 ;
 		if(yearEntered < currentYear){
-			acBalance = acBalance;
 			if(monthEntered < currentMonth){
-			acBalance = acBalance;
 			errormessage = "Card Not Valid";
 			console.log(errormessage);
 			res.redirect('/user/'+userName+'/addMoney');
@@ -261,32 +266,21 @@ router.get('/user/:username/payElse',function(req,res){
 });
 //Routing for Movie Booking Link in Pay Elsewhere tab
 router.get('/Movies',function(req,res){
-	res.render('moviesUsecase',{title:'Pay ElseWhere using Express Wallet : Movies ', userName : userName, balance : acBalance });
+	res.render('movies',{title:'Pay ElseWhere using Express Wallet : Movies ', userName : userName, balance : acBalance });
 });
 //Checking for getting Movie List
 router.get('/getMovieList', function(req, res){
 	console.log("JSON FILE Request Received");
-	//res.sendFile(path.join(__dirname+'/data/moviesNew.json'));
-	console.log(req.query.id);
- 	if(req.query.id=='bengaluru'){
-		res.sendFile(path.join(__dirname+'/data/moviesNew.json'));
-	}
-	else if(req.query.id=='mumbai'){
-		res.sendFile(path.join(__dirname+'/data/movies1.json'));
-	} 
+	res.sendFile(path.join(__dirname+'/data/moviesNew.json'));
+	//console.log(req.query.id);
 }) ;
 //Checking for booking Movie successful or not 
 router.get('/bookMovie*', function(req, res){
 	var movie = req.query.movie_name ;
 	var ticketCount = req.query.ticket_count;
-	//var amount = ticketCount * 100;
-	if(req.query.promo!=''){
-		var amount = ticketCount * 90;
-	}
-	else{
-		var amount = ticketCount * 100;
-	} 
+	var amount = ticketCount * 100;
 	console.log("You need to pay"+amount);
+	
 	if( amount <= (acBalance) ){
 		console.log("Purchasing Movie Tickets For Rs."+amount);
 		acBalance = acBalance - amount ;
@@ -360,10 +354,11 @@ router.post('/rechargeSuccess', function (req, res) {
 });
 // Routing for Logout Tab 
 
- router.get('/user/:username/logout',function(req,res){
+  router.get('/user/:username/logout',function(req,res){
 		console.log("Logging out"+req.params.username);
+		//req.session.destroy();
 		res.redirect('/');
-});
+}); 
  
 
 

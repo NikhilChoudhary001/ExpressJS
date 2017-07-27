@@ -59,38 +59,4 @@ app.use(session({
 app.listen(1010);
 console.log("Server has begun on port 1010");
 
-/* 
- app.get('/', function(req, res) {
-    console.log("Request For E-wallet Received");
-	res.render('newHome', { title: 'ExpressWallet'});
-}); 
-
-
-app.get('/loginPage', function(req, res) {
-    console.log("Request For E-wallet Login Received");
-	res.render('index', { title: 'Login to ExpressWallet' });
-});
- 
- // Handling request for logging in User to Express wallet after checking valid credentials.
-
-app.post('/login', function(req, res) {
-	var username = req.body.username;
-    var pass = req.body.pass;
-	req.session.username = username;
-	console.log("Your session starts now"+req.session.username);
-	dbmodule.authenticateUser(username, pass,res);
-});
-
-// Routing for Logout Tab 
-
-app.get('/user/:username/logout',function(req,res){
-		req.session.destroy(function(){
-		console.log("Logging out"+req.params.username);
-		res.redirect('/');
-	});
-	
-});  */
-
-
-
 module.exports = app;
