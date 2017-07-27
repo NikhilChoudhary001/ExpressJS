@@ -1,0 +1,36 @@
+Steps to run the expressWallet application : 
+
+1. Install Mongodb
+2. Create a folder structure as : data\db folder as mongodb requires a data folder to store its files.
+-> md data
+-> cd data
+-> md db
+3. Open command prompt and go to mongodb\server\3.2\bin path and give the following command to start the mongo process
+
+> mongod --dbpath "D:\data\db"
+
+[For 32-bit architecture systems] : 
+> mongod --storageEngine=mmapv1 --dbpath "D:\data\db"
+
+4. open another command prompt and go to mongodb\Server\3.2\bin path and give the following command to start the mongo shell
+> mongo
+
+5. Once your mongodb is up and running you can create the collections using the following commands in the mongo shell : 
+
+a. command to create/open a database
+-> use db
+ where db is the database name
+
+b.  command to create a collection
+-> db.createCollection("WalletUsers")
+-> db.createCollection("Transactions")
+
+c. For other methods on mongodb colelction , you can refer :
+    https://docs.mongodb.com/manual/reference/method/js-collection/
+
+6. After the database is setup , open the app.js file with cmd , and type the following command - 
+    node app 
+7. Then, go to your browser (preferrably Google Chrome) and type the following URL :
+   http://localhost:1010/
+   
+   Your application is now launched successfully. Register and Explore the Express Wallet .
